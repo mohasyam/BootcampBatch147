@@ -1,0 +1,5 @@
+E:\Project BootCamp\Minggu3\PayrollMVC\PayrollViewModel\bin\Debug\PayrollViewModel.dll
+E:\Project BootCamp\Minggu3\PayrollMVC\PayrollViewModel\bin\Debug\PayrollViewModel.pdb
+E:\Project BootCamp\Minggu3\PayrollMVC\PayrollViewModel\obj\Debug\PayrollViewModel.csprojResolveAssemblyReference.cache
+E:\Project BootCamp\Minggu3\PayrollMVC\PayrollViewModel\obj\Debug\PayrollViewModel.dll
+E:\Project BootCamp\Minggu3\PayrollMVC\PayrollViewModel\obj\Debug\PayrollViewModel.pdb

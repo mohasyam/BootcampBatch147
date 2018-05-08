@@ -1,0 +1,28 @@
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.Repository.dll.config
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.Repository.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.Repository.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\EntityFramework.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.DataModel.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.ViewModel.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.DataModel.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\Payroll.ViewModel.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\EntityFramework.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\obj\Debug\Payroll.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\obj\Debug\Payroll.Repository.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.Repository\obj\Debug\Payroll.Repository.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\obj\Debug\Payroll.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\obj\Debug\Payroll.Repository.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\obj\Debug\Payroll.Repository.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.Repository.dll.config
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.Repository.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.Repository.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\EntityFramework.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.DataModel.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.ViewModel.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.DataModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\Payroll.ViewModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\EntityFramework.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.Repository\bin\Debug\EntityFramework.SqlServer.xml

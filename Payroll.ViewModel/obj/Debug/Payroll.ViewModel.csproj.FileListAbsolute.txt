@@ -1,0 +1,10 @@
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.ViewModel\bin\Debug\Payroll.ViewModel.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.ViewModel\bin\Debug\Payroll.ViewModel.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.ViewModel\obj\Debug\Payroll.ViewModel.csprojResolveAssemblyReference.cache
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.ViewModel\obj\Debug\Payroll.ViewModel.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.ViewModel\obj\Debug\Payroll.ViewModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.ViewModel\obj\Debug\Payroll.ViewModel.csprojResolveAssemblyReference.cache
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.ViewModel\obj\Debug\Payroll.ViewModel.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.ViewModel\obj\Debug\Payroll.ViewModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.ViewModel\bin\Debug\Payroll.ViewModel.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.ViewModel\bin\Debug\Payroll.ViewModel.pdb

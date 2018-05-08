@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Payroll.ViewModel.SalaryComponentViewModel>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Aksi
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <button type="button" class="btn btn-success btn-select" data-id="@item.Id">
+                Select
+            </button>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+    
+    </tr>
+}
+
+</table>
+
+<script type="text/javascript">
+    //alert($("#JobPositionId").val());
+    $(".btn-select").click(function () {
+        $.ajax({
+            url: '@Url.Action("GetSalaryComponent", "Payroll")',
+            type: 'get',
+            data: { jobPositionId: $("#JobPositionId").val(), salaryComponentId: ($(this).attr("data-id")) },
+            success: function (result) {
+                $("#employee-payroll").append(result);
+                $("#modal-Form").modal("hide");
+            }
+        })
+    })
+</script>

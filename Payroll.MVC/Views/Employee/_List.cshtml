@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Payroll.ViewModel.EmployeeViewModel>
+
+@{
+    Layout = "";
+}
+
+<table class="table" id="data-list">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BadgeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActivated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BadgeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenderName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActivated)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-warning btn-Edit" data-id="@item.Id">
+                        Edit
+                    </button> |
+                    <button type="button" class="btn btn-sm btn-info btn-Details" data-id="@item.Id">
+                        Details
+                    </button> |
+                    <button type="button" class="btn btn-sm btn-danger btn-Delete" data-id="@item.Id">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    
+</table>
+
+<script type="text/javascript">
+    $("#data-list").DataTable();
+    $(".btn-Edit").click(function () {
+        //alert($(this).attr("data-id"));
+
+        $.ajax({
+            url: '@Url.Action("Edit","Employee")',
+            type: 'get',
+            data: { id: $(this).attr("data-id") },
+            success: function (result) {
+                $(".modal-body").html(result);
+                $(".modal-title").html("Edit Department");
+                $("#modal-Form").modal("show");
+            }
+        })
+    })
+
+    $(".btn-Details").click(function () {
+        //alert($(this).attr("data-id"));
+
+        $.ajax({
+            url: '@Url.Action("Details","Employee")',
+            type: 'get',
+            data: { id: $(this).attr("data-id") },
+            success: function (result) {
+                $(".modal-body").html(result);
+                $(".modal-title").html("Details Employee");
+                $("#modal-Form").modal("show");
+            }
+        })
+    })
+
+    $(".btn-Delete").click(function () {
+        //alert($(this).attr("data-id"));
+
+        $.ajax({
+            url: '@Url.Action("Delete","Employee")',
+            type: 'get',
+            data: { id: $(this).attr("data-id") },
+            success: function (result) {
+                $(".modal-body").html(result);
+                $(".modal-title").html("Delete Department");
+                $("#modal-Form").modal("show");
+            }
+        })
+    })
+
+</script>
+

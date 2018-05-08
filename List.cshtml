@@ -1,0 +1,87 @@
+@model IEnumerable<Payroll.ViewModel.DepartmentViewModel>
+
+@{
+    Layout = "";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Code)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DivisionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActivated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DivisionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActivated)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+            <button type="button" class="btn btn-sm btn-danger btn-Edit" data-id ="@item.Id">
+                Edit
+            </button> |
+
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            <button type="button" class="btn btn-sm btn-danger btn-Delete" data-id="@item.Id">
+                Delete
+            </button> 
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<script type="text/javascript">
+
+    $(".btn-Edit").click(function () {
+        //alert($(this).attr("data-id"));
+
+        $.ajax({
+            url: '@Url.Action("Edit","Department")',
+            type: 'get',
+            data: { id: $(this).attr("data-id") }, 
+            success: function (result) {
+                $(".modal-body").html(result);
+                $(".modal-title").html("Edit Department");
+                $("#modal-Form").modal("show");
+            }
+        })
+    })
+
+    $(".btn-Delete").click(function () {
+        //alert($(this).attr("data-id"));
+
+        $.ajax({
+            url: '@Url.Action("Delete","Department")',
+            type: 'get',
+            data: { id: $(this).attr("data-id") },
+            success: function (result) {
+                $(".modal-body").html(result);
+                $(".modal-title").html("Delete Department");
+                $("#modal-Form").modal("show");
+            }
+        })
+    })
+    
+</script>

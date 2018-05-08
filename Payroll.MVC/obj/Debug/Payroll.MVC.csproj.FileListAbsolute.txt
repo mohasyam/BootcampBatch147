@@ -1,0 +1,100 @@
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\csc.exe
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\vbc.exe
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\VBCSCompiler.exe
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.MVC.dll.config
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.MVC.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.MVC.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Antlr3.Runtime.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Newtonsoft.Json.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Helpers.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Mvc.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Optimization.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Razor.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.WebPages.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\WebGrease.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Helpers.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Mvc.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Optimization.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.Razor.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.WebPages.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Antlr3.Runtime.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Newtonsoft.Json.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\obj\Debug\Payroll.MVC.csprojResolveAssemblyReference.cache
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\obj\Debug\Payroll.MVC.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\obj\Debug\Payroll.MVC.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\EntityFramework.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\EntityFramework.SqlServer.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.Repository.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.ViewModel.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.DataModel.dll
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.Repository.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.ViewModel.pdb
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\EntityFramework.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\EntityFramework.SqlServer.xml
+C:\Users\Acer\Desktop\MiniProject\Asyam\Payroll\Payroll.MVC\bin\Payroll.DataModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\csc.exe
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\vbc.exe
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\VBCSCompiler.exe
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.MVC.dll.config
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.MVC.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.MVC.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Antlr3.Runtime.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\EntityFramework.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\EntityFramework.SqlServer.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Newtonsoft.Json.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.Repository.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.ViewModel.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Helpers.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Mvc.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Optimization.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Razor.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.WebPages.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.WebPages.Razor.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\WebGrease.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.DataModel.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.Repository.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.ViewModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\EntityFramework.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\EntityFramework.SqlServer.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Helpers.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Mvc.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Optimization.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.Razor.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.WebPages.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\System.Web.WebPages.Razor.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Antlr3.Runtime.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Newtonsoft.Json.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\bin\Payroll.DataModel.pdb
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\obj\Debug\Payroll.MVC.csprojResolveAssemblyReference.cache
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\obj\Debug\Payroll.MVC.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll.MVC\obj\Debug\Payroll.MVC.pdb
