@@ -4,19 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="90b2197f991d4fff840122589a287afe" Name="Diagram1">
-        <EntityTypeShape EntityType="Payroll.DataModel.Attendance" Width="1.5" PointX="2.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.Department" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.Division" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.Employee" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+      <Diagram DiagramId="e22cba156cb14c9f890ecdfb53177bca" Name="Diagram1">
+        <EntityTypeShape EntityType="Payroll.DataModel.Attendance" Width="1.5" PointX="10.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.Department" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.Division" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.Employee" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Payroll.DataModel.EmployeeSalary" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.Item" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.JobPosition" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.PayrollPeriod" Width="1.5" PointX="8.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.Item" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.JobPosition" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.PayrollPeriod" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="Payroll.DataModel.SalaryComponent" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.SalaryDefaultValue" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.SellingDetail" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="Payroll.DataModel.SellingHeader" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.SalaryDefaultValue" Width="1.5" PointX="10.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.SellingDetail" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.SellingHeader" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Payroll.DataModel.Users" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
         <AssociationConnector Association="Payroll.DataModel.FK_Department_Division" ManuallyRouted="false" />
         <AssociationConnector Association="Payroll.DataModel.FK_JobPosition_Department" ManuallyRouted="false" />
         <AssociationConnector Association="Payroll.DataModel.FK_Employee_JobPosition" ManuallyRouted="false" />
@@ -26,6 +27,13 @@
         <AssociationConnector Association="Payroll.DataModel.FK_SalaryDefaultValue_JobPosition" ManuallyRouted="false" />
         <AssociationConnector Association="Payroll.DataModel.FK_SalaryDefaultValue_SalaryComponent" ManuallyRouted="false" />
         <AssociationConnector Association="Payroll.DataModel.FK_SellingDetail_SellingHeader" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Payroll.DataModel.AccessControl" Width="1.5" PointX="13.375" PointY="3.625" />
+        <EntityTypeShape EntityType="Payroll.DataModel.TrPosition" Width="1.5" PointX="15.625" PointY="0.75" />
+        <EntityTypeShape EntityType="Payroll.DataModel.TrUserAccess" Width="1.5" PointX="15.625" PointY="3.75" />
+        <AssociationConnector Association="Payroll.DataModel.FK_TrPosition_AccessControl" />
+        <AssociationConnector Association="Payroll.DataModel.FK_TrUserAccess_AccessControl" />
+        <AssociationConnector Association="Payroll.DataModel.FK_TrPosition_Users" />
+        <AssociationConnector Association="Payroll.DataModel.FK_TrUserAccess_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

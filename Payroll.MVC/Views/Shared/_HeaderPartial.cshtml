@@ -8,6 +8,7 @@
             <span class="sr-only">Toggle navigation</span>
         </a>
         <div class="navbar-custom-menu">
+            <span class="navbar-brand">Welcome @HttpContext.Current.User.Identity.Name</span>
             <span class="navbar-brand">
                 Current Period :
             </span>
@@ -15,7 +16,17 @@
                 @Payroll.Repository.PayrollPeriodRepo.SelectedPeriod.Description
             </span>
             <ul class="nav navbar-nav">
-                @*@Html.Partial("_LoginPartial")*@
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <a href="javascript:document.getElementById('logoutForm').submit()"><button class="btn btn-danger">Log out</button></a>
+                    }
+                }
+                else
+                {
+                    <a href="@Url.Action("Logout","Account")"><button class="btn btn-success">Login</button></a>
+                }
             </ul>
         </div>
     </nav>

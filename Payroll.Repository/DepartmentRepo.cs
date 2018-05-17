@@ -51,6 +51,30 @@ namespace Payroll.Repository
             return result;
         }
 
+        public static List<DepartmentViewModel> GetByDivId(int divId)
+        {
+            List<DepartmentViewModel> result = new List<DepartmentViewModel>();
+            using (var db = new PayrollContext())
+            {
+                result = (from d in db.Division
+                          join dep in db.Department on
+                          d.Id equals dep.DivisionId
+                          where d.Id == divId
+                          select new DepartmentViewModel
+                          {
+                              Id = dep.Id,
+                              Code = dep.Code,
+                              Description = dep.Description,
+                              DivisionId = d.Id,
+                              DivisionCode = d.Code,
+                              DivisionName = d.Description,
+                              IsActivated = dep.IsActivated
+                          }
+                          ).ToList();
+            }
+            return result;
+        }
+
         public static Responses Update(DepartmentViewModel entity)
         {
             Responses result = new Responses();

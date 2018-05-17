@@ -125,9 +125,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address\WebAddress.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccessDeniedController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AttendanceController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\DivisionController.cs" />
@@ -138,12 +141,21 @@
     <Compile Include="Controllers\JobPositionController.cs" />
     <Compile Include="Controllers\PayrollController.cs" />
     <Compile Include="Controllers\PayrollPeriodController.cs" />
+    <Compile Include="Controllers\POSController.cs" />
     <Compile Include="Controllers\SalaryComponentController.cs" />
     <Compile Include="Controllers\SalaryDefaultValueController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="CustomAuthorization2.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MyRoleProvider\SiteRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Security\CustomPrincipal.cs" />
+    <Compile Include="Security\IServiceCollection.cs" />
+    <Compile Include="Security\SessionPersister.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -168,7 +180,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -248,11 +262,18 @@
     <Content Include="Views\Payroll\_SalaryComponentList.cshtml" />
     <Content Include="Views\Payroll\_GetSalaryComponent.cshtml" />
     <Content Include="Views\Payroll\_RemoveComponent.cshtml" />
+    <Content Include="Views\POS\Index.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\AccessDenied\Index.cshtml" />
+    <Content Include="Views\Account\Success.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminLTE\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -263,6 +284,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Payroll.DataModel\Payroll.DataModel.csproj">
+      <Project>{556e378b-5df6-4805-b1ac-41df15c7a3d7}</Project>
+      <Name>Payroll.DataModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Payroll.Repository\Payroll.Repository.csproj">
       <Project>{0cd14efc-e744-43e5-8926-3433fe2cebca}</Project>
       <Name>Payroll.Repository</Name>

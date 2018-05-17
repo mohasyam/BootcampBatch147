@@ -1,24 +1,30 @@
-﻿@{
+﻿@using Payroll.MVC.Security;
+@using Payroll.Repository;
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-   <div class="row">
-       <div class="col-lg-12" id="select-current-period">
+@{
+    if (Request.IsAuthenticated)
+    {
+        foreach (var form in AccountRepo.GetPrivilegeFormsByUserName(SessionPersister.Username))
+        {
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-lg-4" id="select-current-period">
 
-       </div>
-   </div>
-</div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+}
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+       
     </div>
     <div class="col-md-4">
         <h2>Get more libraries</h2>

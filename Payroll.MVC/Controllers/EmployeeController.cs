@@ -1,4 +1,5 @@
-﻿using Payroll.Repository;
+﻿using Payroll.MVC.Security;
+using Payroll.Repository;
 using Payroll.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,6 @@ namespace Payroll.MVC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.JobPositionList = new SelectList(JobPositionRepo.Get(), "Id", "Description");
             return View("_Create");
         }
 
@@ -46,7 +46,6 @@ namespace Payroll.MVC.Controllers
 
         public ActionResult Edit(int Id)
         {
-            ViewBag.JobPositionList = new SelectList(JobPositionRepo.Get(), "Id", "Description");
             return View("_Edit", EmployeeRepo.GetById(Id));
         }
 

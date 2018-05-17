@@ -22,5 +22,15 @@ namespace Payroll.ViewModel
         public decimal Payment { get; set; }
 
         public bool IsActivated { get; set; }
+
+        public string CreateBy { get; set; }
+
+        public string ModifyBy { get; set; }
+
+        public DateTime CreateDate { get; set; }
+
+        public DateTime ModifyDate { get; set; }
+
+        public List<SellingDetailViewModel> Details { get; set; }
     }
 }

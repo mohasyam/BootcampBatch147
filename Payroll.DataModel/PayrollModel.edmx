@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Payroll.DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccessControl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Controller" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Menu" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Icon" Type="varchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Attendance">
           <Key>
             <PropertyRef Name="Id" />
@@ -189,6 +198,33 @@
           <Property Name="ModifyBy" Type="varchar" MaxLength="50" />
           <Property Name="ModifyDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="TrPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="AccessControlId" Type="int" Nullable="false" />
+          <Property Name="PositionId" Type="int" />
+        </EntityType>
+        <EntityType Name="TrUserAccess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="AccessControlId" Type="int" Nullable="false" />
+          <Property Name="Right" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Roles" Type="nvarchar" MaxLength="10" />
+        </EntityType>
         <Association Name="FK_Department_Division">
           <End Role="Division" Type="Self.Division" Multiplicity="1" />
           <End Role="Department" Type="Self.Department" Multiplicity="*" />
@@ -297,7 +333,56 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TrPosition_AccessControl">
+          <End Role="AccessControl" Type="Self.AccessControl" Multiplicity="1" />
+          <End Role="TrPosition" Type="Self.TrPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessControl">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrPosition">
+              <PropertyRef Name="AccessControlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrPosition_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="TrPosition" Type="Self.TrPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrPosition">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrUserAccess_AccessControl">
+          <End Role="AccessControl" Type="Self.AccessControl" Multiplicity="1" />
+          <End Role="TrUserAccess" Type="Self.TrUserAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessControl">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrUserAccess">
+              <PropertyRef Name="AccessControlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrUserAccess_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="TrUserAccess" Type="Self.TrUserAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrUserAccess">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PayrollDataModelStoreContainer">
+          <EntitySet Name="AccessControl" EntityType="Self.AccessControl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
@@ -310,6 +395,9 @@
           <EntitySet Name="SalaryDefaultValue" EntityType="Self.SalaryDefaultValue" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SellingDetail" EntityType="Self.SellingDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SellingHeader" EntityType="Self.SellingHeader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrPosition" EntityType="Self.TrPosition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrUserAccess" EntityType="Self.TrUserAccess" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Department_Division" Association="Self.FK_Department_Division">
             <End Role="Division" EntitySet="Division" />
             <End Role="Department" EntitySet="Department" />
@@ -346,6 +434,22 @@
             <End Role="SellingHeader" EntitySet="SellingHeader" />
             <End Role="SellingDetail" EntitySet="SellingDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_TrPosition_AccessControl" Association="Self.FK_TrPosition_AccessControl">
+            <End Role="AccessControl" EntitySet="AccessControl" />
+            <End Role="TrPosition" EntitySet="TrPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrPosition_Users" Association="Self.FK_TrPosition_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TrPosition" EntitySet="TrPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrUserAccess_AccessControl" Association="Self.FK_TrUserAccess_AccessControl">
+            <End Role="AccessControl" EntitySet="AccessControl" />
+            <End Role="TrUserAccess" EntitySet="TrUserAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrUserAccess_Users" Association="Self.FK_TrUserAccess_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TrUserAccess" EntitySet="TrUserAccess" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -360,7 +464,7 @@
           <Property Name="CheckIn" Type="DateTime" Precision="3" />
           <Property Name="CheckOut" Type="DateTime" Precision="3" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
@@ -374,12 +478,12 @@
           <Property Name="DivisionId" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Division" Relationship="Self.FK_Department_Division" FromRole="Department" ToRole="Division" />
-          <NavigationProperty Name="JobPosition" Relationship="Self.FK_JobPosition_Department" FromRole="Department" ToRole="JobPosition" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Division" Relationship="Self.FK_Department_Division" FromRole="Department" ToRole="Division" />
+          <NavigationProperty Name="JobPosition" Relationship="Self.FK_JobPosition_Department" FromRole="Department" ToRole="JobPosition" />
         </EntityType>
         <EntityType Name="Division">
           <Key>
@@ -389,11 +493,11 @@
           <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Department" Relationship="Self.FK_Department_Division" FromRole="Division" ToRole="Department" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Department_Division" FromRole="Division" ToRole="Department" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -412,11 +516,11 @@
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="JobPosition" Relationship="Self.FK_Employee_JobPosition" FromRole="Employee" ToRole="JobPosition" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPosition" Relationship="Self.FK_Employee_JobPosition" FromRole="Employee" ToRole="JobPosition" />
         </EntityType>
         <EntityType Name="EmployeeSalary">
           <Key>
@@ -429,12 +533,12 @@
           <Property Name="BasicValue" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="FinalValue" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="PayrollPeriod" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="EmployeeSalary" ToRole="PayrollPeriod" />
-          <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="EmployeeSalary" ToRole="SalaryComponent" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PayrollPeriod" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="EmployeeSalary" ToRole="PayrollPeriod" />
+          <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="EmployeeSalary" ToRole="SalaryComponent" />
         </EntityType>
         <EntityType Name="Item">
           <Key>
@@ -446,11 +550,11 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="Stock" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_Item" FromRole="Item" ToRole="SellingDetail" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_Item" FromRole="Item" ToRole="SellingDetail" />
         </EntityType>
         <EntityType Name="JobPosition">
           <Key>
@@ -461,13 +565,13 @@
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Department" Relationship="Self.FK_JobPosition_Department" FromRole="JobPosition" ToRole="Department" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_JobPosition" FromRole="JobPosition" ToRole="Employee" />
-          <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="JobPosition" ToRole="SalaryDefaultValue" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_JobPosition_Department" FromRole="JobPosition" ToRole="Department" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_JobPosition" FromRole="JobPosition" ToRole="Employee" />
+          <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="JobPosition" ToRole="SalaryDefaultValue" />
         </EntityType>
         <EntityType Name="PayrollPeriod">
           <Key>
@@ -480,11 +584,11 @@
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IsCurrentPeriod" Type="Boolean" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="PayrollPeriod" ToRole="EmployeeSalary" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="PayrollPeriod" ToRole="EmployeeSalary" />
         </EntityType>
         <EntityType Name="SalaryComponent">
           <Key>
@@ -496,12 +600,12 @@
           <Property Name="Period" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="SalaryComponent" ToRole="EmployeeSalary" />
-          <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryComponent" ToRole="SalaryDefaultValue" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="SalaryComponent" ToRole="EmployeeSalary" />
+          <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryComponent" ToRole="SalaryDefaultValue" />
         </EntityType>
         <EntityType Name="SalaryDefaultValue">
           <Key>
@@ -512,12 +616,12 @@
           <Property Name="SalaryComponentId" Type="Int32" Nullable="false" />
           <Property Name="Value" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="JobPosition" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="SalaryDefaultValue" ToRole="JobPosition" />
-          <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryDefaultValue" ToRole="SalaryComponent" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="JobPosition" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="SalaryDefaultValue" ToRole="JobPosition" />
+          <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryDefaultValue" ToRole="SalaryComponent" />
         </EntityType>
         <EntityType Name="SellingDetail">
           <Key>
@@ -530,12 +634,12 @@
           <Property Name="Price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Item" Relationship="Self.FK_SellingDetail_Item" FromRole="SellingDetail" ToRole="Item" />
-          <NavigationProperty Name="SellingHeader" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingDetail" ToRole="SellingHeader" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_SellingDetail_Item" FromRole="SellingDetail" ToRole="Item" />
+          <NavigationProperty Name="SellingHeader" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingDetail" ToRole="SellingHeader" />
         </EntityType>
         <EntityType Name="SellingHeader">
           <Key>
@@ -547,11 +651,22 @@
           <Property Name="SellingTotal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="Payment" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
           <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingHeader" ToRole="SellingDetail" />
-          <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingHeader" ToRole="SellingDetail" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Roles" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="TrPosition" Relationship="Payroll.DataModel.FK_TrPosition_Users" FromRole="Users" ToRole="TrPosition" />
+          <NavigationProperty Name="TrUserAccess" Relationship="Payroll.DataModel.FK_TrUserAccess_Users" FromRole="Users" ToRole="TrUserAccess" />
         </EntityType>
         <Association Name="FK_Department_Division">
           <End Role="Division" Type="Self.Division" Multiplicity="1" />
@@ -674,6 +789,7 @@
           <EntitySet Name="SalaryDefaultValue" EntityType="Self.SalaryDefaultValue" />
           <EntitySet Name="SellingDetail" EntityType="Self.SellingDetail" />
           <EntitySet Name="SellingHeader" EntityType="Self.SellingHeader" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_Department_Division" Association="Self.FK_Department_Division">
             <End Role="Division" EntitySet="Division" />
             <End Role="Department" EntitySet="Department" />
@@ -710,7 +826,107 @@
             <End Role="SellingHeader" EntitySet="SellingHeader" />
             <End Role="SellingDetail" EntitySet="SellingDetail" />
           </AssociationSet>
+          <EntitySet Name="AccessControl" EntityType="Payroll.DataModel.AccessControl" />
+          <EntitySet Name="TrPosition" EntityType="Payroll.DataModel.TrPosition" />
+          <EntitySet Name="TrUserAccess" EntityType="Payroll.DataModel.TrUserAccess" />
+          <AssociationSet Name="FK_TrPosition_AccessControl" Association="Payroll.DataModel.FK_TrPosition_AccessControl">
+            <End Role="AccessControl" EntitySet="AccessControl" />
+            <End Role="TrPosition" EntitySet="TrPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrUserAccess_AccessControl" Association="Payroll.DataModel.FK_TrUserAccess_AccessControl">
+            <End Role="AccessControl" EntitySet="AccessControl" />
+            <End Role="TrUserAccess" EntitySet="TrUserAccess" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrPosition_Users" Association="Payroll.DataModel.FK_TrPosition_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TrPosition" EntitySet="TrPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrUserAccess_Users" Association="Payroll.DataModel.FK_TrUserAccess_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TrUserAccess" EntitySet="TrUserAccess" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="AccessControl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Menu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TrPosition" Relationship="Payroll.DataModel.FK_TrPosition_AccessControl" FromRole="AccessControl" ToRole="TrPosition" />
+          <NavigationProperty Name="TrUserAccess" Relationship="Payroll.DataModel.FK_TrUserAccess_AccessControl" FromRole="AccessControl" ToRole="TrUserAccess" />
+        </EntityType>
+        <EntityType Name="TrPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="AccessControlId" Type="Int32" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" />
+          <NavigationProperty Name="AccessControl" Relationship="Payroll.DataModel.FK_TrPosition_AccessControl" FromRole="TrPosition" ToRole="AccessControl" />
+          <NavigationProperty Name="Users" Relationship="Payroll.DataModel.FK_TrPosition_Users" FromRole="TrPosition" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="TrUserAccess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="AccessControlId" Type="Int32" Nullable="false" />
+          <Property Name="Right" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AccessControl" Relationship="Payroll.DataModel.FK_TrUserAccess_AccessControl" FromRole="TrUserAccess" ToRole="AccessControl" />
+          <NavigationProperty Name="Users" Relationship="Payroll.DataModel.FK_TrUserAccess_Users" FromRole="TrUserAccess" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_TrPosition_AccessControl">
+          <End Type="Payroll.DataModel.AccessControl" Role="AccessControl" Multiplicity="1" />
+          <End Type="Payroll.DataModel.TrPosition" Role="TrPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessControl">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrPosition">
+              <PropertyRef Name="AccessControlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrUserAccess_AccessControl">
+          <End Type="Payroll.DataModel.AccessControl" Role="AccessControl" Multiplicity="1" />
+          <End Type="Payroll.DataModel.TrUserAccess" Role="TrUserAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccessControl">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrUserAccess">
+              <PropertyRef Name="AccessControlId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrPosition_Users">
+          <End Type="Payroll.DataModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="Payroll.DataModel.TrPosition" Role="TrPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrPosition">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrUserAccess_Users">
+          <End Type="Payroll.DataModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="Payroll.DataModel.TrUserAccess" Role="TrUserAccess" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrUserAccess">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -720,54 +936,50 @@
           <EntitySetMapping Name="Attendance">
             <EntityTypeMapping TypeName="Payroll.DataModel.Attendance">
               <MappingFragment StoreEntitySet="Attendance">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
                 <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
                 <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Department">
             <EntityTypeMapping TypeName="Payroll.DataModel.Department">
               <MappingFragment StoreEntitySet="Department">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Division">
             <EntityTypeMapping TypeName="Payroll.DataModel.Division">
               <MappingFragment StoreEntitySet="Division">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="Payroll.DataModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
                 <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
@@ -781,16 +993,16 @@
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeSalary">
             <EntityTypeMapping TypeName="Payroll.DataModel.EmployeeSalary">
               <MappingFragment StoreEntitySet="EmployeeSalary">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
                 <ScalarProperty Name="PayrollPeriodId" ColumnName="PayrollPeriodId" />
@@ -798,47 +1010,47 @@
                 <ScalarProperty Name="BasicValue" ColumnName="BasicValue" />
                 <ScalarProperty Name="FinalValue" ColumnName="FinalValue" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Item">
             <EntityTypeMapping TypeName="Payroll.DataModel.Item">
               <MappingFragment StoreEntitySet="Item">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Stock" ColumnName="Stock" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="JobPosition">
             <EntityTypeMapping TypeName="Payroll.DataModel.JobPosition">
               <MappingFragment StoreEntitySet="JobPosition">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PayrollPeriod">
             <EntityTypeMapping TypeName="Payroll.DataModel.PayrollPeriod">
               <MappingFragment StoreEntitySet="PayrollPeriod">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PeriodYear" ColumnName="PeriodYear" />
                 <ScalarProperty Name="PeriodMonth" ColumnName="PeriodMonth" />
@@ -846,47 +1058,47 @@
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="IsCurrentPeriod" ColumnName="IsCurrentPeriod" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SalaryComponent">
             <EntityTypeMapping TypeName="Payroll.DataModel.SalaryComponent">
               <MappingFragment StoreEntitySet="SalaryComponent">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Period" ColumnName="Period" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SalaryDefaultValue">
             <EntityTypeMapping TypeName="Payroll.DataModel.SalaryDefaultValue">
               <MappingFragment StoreEntitySet="SalaryDefaultValue">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
                 <ScalarProperty Name="SalaryComponentId" ColumnName="SalaryComponentId" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SellingDetail">
             <EntityTypeMapping TypeName="Payroll.DataModel.SellingDetail">
               <MappingFragment StoreEntitySet="SellingDetail">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="SellingHeaderId" ColumnName="SellingHeaderId" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
@@ -894,22 +1106,66 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SellingHeader">
             <EntityTypeMapping TypeName="Payroll.DataModel.SellingHeader">
               <MappingFragment StoreEntitySet="SellingHeader">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Reference" ColumnName="Reference" />
                 <ScalarProperty Name="DateOfSelling" ColumnName="DateOfSelling" />
                 <ScalarProperty Name="SellingTotal" ColumnName="SellingTotal" />
                 <ScalarProperty Name="Payment" ColumnName="Payment" />
                 <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+                <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Payroll.DataModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccessControl">
+            <EntityTypeMapping TypeName="Payroll.DataModel.AccessControl">
+              <MappingFragment StoreEntitySet="AccessControl">
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Menu" ColumnName="Menu" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrPosition">
+            <EntityTypeMapping TypeName="Payroll.DataModel.TrPosition">
+              <MappingFragment StoreEntitySet="TrPosition">
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+                <ScalarProperty Name="AccessControlId" ColumnName="AccessControlId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrUserAccess">
+            <EntityTypeMapping TypeName="Payroll.DataModel.TrUserAccess">
+              <MappingFragment StoreEntitySet="TrUserAccess">
+                <ScalarProperty Name="Right" ColumnName="Right" />
+                <ScalarProperty Name="AccessControlId" ColumnName="AccessControlId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

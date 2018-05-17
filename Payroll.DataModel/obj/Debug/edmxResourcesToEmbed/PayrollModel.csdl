@@ -9,7 +9,7 @@
     <Property Name="CheckIn" Type="DateTime" Precision="3" />
     <Property Name="CheckOut" Type="DateTime" Precision="3" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
@@ -23,12 +23,12 @@
     <Property Name="DivisionId" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Division" Relationship="Self.FK_Department_Division" FromRole="Department" ToRole="Division" />
-    <NavigationProperty Name="JobPosition" Relationship="Self.FK_JobPosition_Department" FromRole="Department" ToRole="JobPosition" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Division" Relationship="Self.FK_Department_Division" FromRole="Department" ToRole="Division" />
+    <NavigationProperty Name="JobPosition" Relationship="Self.FK_JobPosition_Department" FromRole="Department" ToRole="JobPosition" />
   </EntityType>
   <EntityType Name="Division">
     <Key>
@@ -38,11 +38,11 @@
     <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Department" Relationship="Self.FK_Department_Division" FromRole="Division" ToRole="Department" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_Department_Division" FromRole="Division" ToRole="Department" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -61,11 +61,11 @@
     <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
     <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="JobPosition" Relationship="Self.FK_Employee_JobPosition" FromRole="Employee" ToRole="JobPosition" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="JobPosition" Relationship="Self.FK_Employee_JobPosition" FromRole="Employee" ToRole="JobPosition" />
   </EntityType>
   <EntityType Name="EmployeeSalary">
     <Key>
@@ -78,12 +78,12 @@
     <Property Name="BasicValue" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="FinalValue" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="PayrollPeriod" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="EmployeeSalary" ToRole="PayrollPeriod" />
-    <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="EmployeeSalary" ToRole="SalaryComponent" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="PayrollPeriod" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="EmployeeSalary" ToRole="PayrollPeriod" />
+    <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="EmployeeSalary" ToRole="SalaryComponent" />
   </EntityType>
   <EntityType Name="Item">
     <Key>
@@ -95,11 +95,11 @@
     <Property Name="Price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="Stock" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_Item" FromRole="Item" ToRole="SellingDetail" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_Item" FromRole="Item" ToRole="SellingDetail" />
   </EntityType>
   <EntityType Name="JobPosition">
     <Key>
@@ -110,13 +110,13 @@
     <Property Name="DepartmentID" Type="Int32" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Department" Relationship="Self.FK_JobPosition_Department" FromRole="JobPosition" ToRole="Department" />
-    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_JobPosition" FromRole="JobPosition" ToRole="Employee" />
-    <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="JobPosition" ToRole="SalaryDefaultValue" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="Self.FK_JobPosition_Department" FromRole="JobPosition" ToRole="Department" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Employee_JobPosition" FromRole="JobPosition" ToRole="Employee" />
+    <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="JobPosition" ToRole="SalaryDefaultValue" />
   </EntityType>
   <EntityType Name="PayrollPeriod">
     <Key>
@@ -129,11 +129,11 @@
     <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="IsCurrentPeriod" Type="Boolean" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="PayrollPeriod" ToRole="EmployeeSalary" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_PayrollPeriod" FromRole="PayrollPeriod" ToRole="EmployeeSalary" />
   </EntityType>
   <EntityType Name="SalaryComponent">
     <Key>
@@ -145,12 +145,12 @@
     <Property Name="Period" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="SalaryComponent" ToRole="EmployeeSalary" />
-    <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryComponent" ToRole="SalaryDefaultValue" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="EmployeeSalary" Relationship="Self.FK_EmployeeSalary_SalaryComponent" FromRole="SalaryComponent" ToRole="EmployeeSalary" />
+    <NavigationProperty Name="SalaryDefaultValue" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryComponent" ToRole="SalaryDefaultValue" />
   </EntityType>
   <EntityType Name="SalaryDefaultValue">
     <Key>
@@ -161,12 +161,12 @@
     <Property Name="SalaryComponentId" Type="Int32" Nullable="false" />
     <Property Name="Value" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="JobPosition" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="SalaryDefaultValue" ToRole="JobPosition" />
-    <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryDefaultValue" ToRole="SalaryComponent" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="JobPosition" Relationship="Self.FK_SalaryDefaultValue_JobPosition" FromRole="SalaryDefaultValue" ToRole="JobPosition" />
+    <NavigationProperty Name="SalaryComponent" Relationship="Self.FK_SalaryDefaultValue_SalaryComponent" FromRole="SalaryDefaultValue" ToRole="SalaryComponent" />
   </EntityType>
   <EntityType Name="SellingDetail">
     <Key>
@@ -179,12 +179,12 @@
     <Property Name="Price" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Item" Relationship="Self.FK_SellingDetail_Item" FromRole="SellingDetail" ToRole="Item" />
-    <NavigationProperty Name="SellingHeader" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingDetail" ToRole="SellingHeader" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Item" Relationship="Self.FK_SellingDetail_Item" FromRole="SellingDetail" ToRole="Item" />
+    <NavigationProperty Name="SellingHeader" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingDetail" ToRole="SellingHeader" />
   </EntityType>
   <EntityType Name="SellingHeader">
     <Key>
@@ -196,11 +196,22 @@
     <Property Name="SellingTotal" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="Payment" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
     <Property Name="IsActivated" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingHeader" ToRole="SellingDetail" />
-    <Property Name="CreateBy" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreateBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="ModifyBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="ModifyDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="SellingDetail" Relationship="Self.FK_SellingDetail_SellingHeader" FromRole="SellingHeader" ToRole="SellingDetail" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Roles" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TrPosition" Relationship="Payroll.DataModel.FK_TrPosition_Users" FromRole="Users" ToRole="TrPosition" />
+    <NavigationProperty Name="TrUserAccess" Relationship="Payroll.DataModel.FK_TrUserAccess_Users" FromRole="Users" ToRole="TrUserAccess" />
   </EntityType>
   <Association Name="FK_Department_Division">
     <End Role="Division" Type="Self.Division" Multiplicity="1" />
@@ -323,6 +334,7 @@
     <EntitySet Name="SalaryDefaultValue" EntityType="Self.SalaryDefaultValue" />
     <EntitySet Name="SellingDetail" EntityType="Self.SellingDetail" />
     <EntitySet Name="SellingHeader" EntityType="Self.SellingHeader" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
     <AssociationSet Name="FK_Department_Division" Association="Self.FK_Department_Division">
       <End Role="Division" EntitySet="Division" />
       <End Role="Department" EntitySet="Department" />
@@ -359,5 +371,105 @@
       <End Role="SellingHeader" EntitySet="SellingHeader" />
       <End Role="SellingDetail" EntitySet="SellingDetail" />
     </AssociationSet>
+    <EntitySet Name="AccessControl" EntityType="Payroll.DataModel.AccessControl" />
+    <EntitySet Name="TrPosition" EntityType="Payroll.DataModel.TrPosition" />
+    <EntitySet Name="TrUserAccess" EntityType="Payroll.DataModel.TrUserAccess" />
+    <AssociationSet Name="FK_TrPosition_AccessControl" Association="Payroll.DataModel.FK_TrPosition_AccessControl">
+      <End Role="AccessControl" EntitySet="AccessControl" />
+      <End Role="TrPosition" EntitySet="TrPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrUserAccess_AccessControl" Association="Payroll.DataModel.FK_TrUserAccess_AccessControl">
+      <End Role="AccessControl" EntitySet="AccessControl" />
+      <End Role="TrUserAccess" EntitySet="TrUserAccess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrPosition_Users" Association="Payroll.DataModel.FK_TrPosition_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="TrPosition" EntitySet="TrPosition" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrUserAccess_Users" Association="Payroll.DataModel.FK_TrUserAccess_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="TrUserAccess" EntitySet="TrUserAccess" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="AccessControl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Menu" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Icon" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TrPosition" Relationship="Payroll.DataModel.FK_TrPosition_AccessControl" FromRole="AccessControl" ToRole="TrPosition" />
+    <NavigationProperty Name="TrUserAccess" Relationship="Payroll.DataModel.FK_TrUserAccess_AccessControl" FromRole="AccessControl" ToRole="TrUserAccess" />
+  </EntityType>
+  <EntityType Name="TrPosition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="AccessControlId" Type="Int32" Nullable="false" />
+    <Property Name="PositionId" Type="Int32" />
+    <NavigationProperty Name="AccessControl" Relationship="Payroll.DataModel.FK_TrPosition_AccessControl" FromRole="TrPosition" ToRole="AccessControl" />
+    <NavigationProperty Name="Users" Relationship="Payroll.DataModel.FK_TrPosition_Users" FromRole="TrPosition" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="TrUserAccess">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="AccessControlId" Type="Int32" Nullable="false" />
+    <Property Name="Right" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AccessControl" Relationship="Payroll.DataModel.FK_TrUserAccess_AccessControl" FromRole="TrUserAccess" ToRole="AccessControl" />
+    <NavigationProperty Name="Users" Relationship="Payroll.DataModel.FK_TrUserAccess_Users" FromRole="TrUserAccess" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK_TrPosition_AccessControl">
+    <End Type="Payroll.DataModel.AccessControl" Role="AccessControl" Multiplicity="1" />
+    <End Type="Payroll.DataModel.TrPosition" Role="TrPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessControl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrPosition">
+        <PropertyRef Name="AccessControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrUserAccess_AccessControl">
+    <End Type="Payroll.DataModel.AccessControl" Role="AccessControl" Multiplicity="1" />
+    <End Type="Payroll.DataModel.TrUserAccess" Role="TrUserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessControl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrUserAccess">
+        <PropertyRef Name="AccessControlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrPosition_Users">
+    <End Type="Payroll.DataModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="Payroll.DataModel.TrPosition" Role="TrPosition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrPosition">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrUserAccess_Users">
+    <End Type="Payroll.DataModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="Payroll.DataModel.TrUserAccess" Role="TrUserAccess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TrUserAccess">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

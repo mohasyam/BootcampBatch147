@@ -51,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessControl.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Attendance.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
@@ -104,19 +107,29 @@
     <Compile Include="SellingHeader.cs">
       <DependentUpon>PayrollModel.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="PayrollModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PayrollModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
+    <Compile Include="TrPosition.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrUserAccess.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>PayrollModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="PayrollModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PayrollModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="PayrollModel.edmx.diagram">
       <DependentUpon>PayrollModel.edmx</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="PayrollModel.Context.tt">
@@ -129,9 +142,6 @@
       <DependentUpon>PayrollModel.edmx</DependentUpon>
       <LastGenOutput>PayrollModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

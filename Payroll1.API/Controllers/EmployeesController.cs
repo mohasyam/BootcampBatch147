@@ -41,5 +41,10 @@ namespace Payroll1.API.Controllers
         {
             return EmployeeRepo.Delete(id);
         }
+
+        public bool Login(string username, string password)
+        {
+            return EmployeeSecurity.Login(username, password);
+        }
     }
 }

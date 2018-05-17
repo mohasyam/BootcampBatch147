@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccountRepo.cs" />
     <Compile Include="AttendanceRepo.cs" />
+    <Compile Include="Crypto.cs" />
     <Compile Include="EmployeeRepo.cs" />
     <Compile Include="EmployeeSalaryRepo.cs" />
     <Compile Include="DepartmentRepo.cs" />
@@ -57,11 +60,13 @@
     <Compile Include="ItemRepo.cs" />
     <Compile Include="JobPositionRepo.cs" />
     <Compile Include="PayrollPeriodRepo.cs" />
+    <Compile Include="POSRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalaryComponentRepo.cs" />
     <Compile Include="SalaryDefaultValueRepo.cs" />
     <Compile Include="SellingDetailRepo.cs" />
     <Compile Include="SellingHeaderRepo.cs" />
+    <Compile Include="UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Payroll.DataModel\Payroll.DataModel.csproj">

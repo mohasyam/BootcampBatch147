@@ -1,4 +1,5 @@
-﻿using Payroll.Repository;
+﻿using Payroll.MVC.Security;
+using Payroll.Repository;
 using Payroll.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Payroll.MVC.Controllers
 {
+    [CustomAuthorize(Roles = "Department")]
     public class DepartmentController : Controller
     {
         // GET: Department

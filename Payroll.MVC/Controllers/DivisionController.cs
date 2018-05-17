@@ -1,4 +1,5 @@
-﻿using Payroll.Repository;
+﻿using Payroll.MVC.Security;
+using Payroll.Repository;
 using Payroll.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Payroll.MVC.Controllers
 {
+    [CustomAuthorize(Roles = "Division")]
     public class DivisionController : Controller
     {
         // GET: Division
@@ -20,7 +22,7 @@ namespace Payroll.MVC.Controllers
         {
             return View("_List", DivisionRepo.Get());
         }
-
+        [CustomAuthorize(Roles ="Division", AccessLevel ="W")]
         public ActionResult Create()
         {
             return View("_Create");

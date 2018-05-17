@@ -37,5 +37,9 @@ namespace Payroll.DataModel
         public virtual DbSet<SalaryDefaultValue> SalaryDefaultValue { get; set; }
         public virtual DbSet<SellingDetail> SellingDetail { get; set; }
         public virtual DbSet<SellingHeader> SellingHeader { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<AccessControl> AccessControl { get; set; }
+        public virtual DbSet<TrPosition> TrPosition { get; set; }
+        public virtual DbSet<TrUserAccess> TrUserAccess { get; set; }
     }
 }

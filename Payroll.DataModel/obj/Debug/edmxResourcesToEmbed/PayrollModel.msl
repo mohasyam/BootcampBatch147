@@ -4,54 +4,50 @@
     <EntitySetMapping Name="Attendance">
       <EntityTypeMapping TypeName="Payroll.DataModel.Attendance">
         <MappingFragment StoreEntitySet="Attendance">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
           <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
           <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Department">
       <EntityTypeMapping TypeName="Payroll.DataModel.Department">
         <MappingFragment StoreEntitySet="Department">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="DivisionId" ColumnName="DivisionId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Division">
       <EntityTypeMapping TypeName="Payroll.DataModel.Division">
         <MappingFragment StoreEntitySet="Division">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Employee">
       <EntityTypeMapping TypeName="Payroll.DataModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
           <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
@@ -65,16 +61,16 @@
           <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeSalary">
       <EntityTypeMapping TypeName="Payroll.DataModel.EmployeeSalary">
         <MappingFragment StoreEntitySet="EmployeeSalary">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="BadgeId" ColumnName="BadgeId" />
           <ScalarProperty Name="PayrollPeriodId" ColumnName="PayrollPeriodId" />
@@ -82,47 +78,47 @@
           <ScalarProperty Name="BasicValue" ColumnName="BasicValue" />
           <ScalarProperty Name="FinalValue" ColumnName="FinalValue" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Item">
       <EntityTypeMapping TypeName="Payroll.DataModel.Item">
         <MappingFragment StoreEntitySet="Item">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Stock" ColumnName="Stock" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="JobPosition">
       <EntityTypeMapping TypeName="Payroll.DataModel.JobPosition">
         <MappingFragment StoreEntitySet="JobPosition">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PayrollPeriod">
       <EntityTypeMapping TypeName="Payroll.DataModel.PayrollPeriod">
         <MappingFragment StoreEntitySet="PayrollPeriod">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PeriodYear" ColumnName="PeriodYear" />
           <ScalarProperty Name="PeriodMonth" ColumnName="PeriodMonth" />
@@ -130,47 +126,47 @@
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="IsCurrentPeriod" ColumnName="IsCurrentPeriod" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SalaryComponent">
       <EntityTypeMapping TypeName="Payroll.DataModel.SalaryComponent">
         <MappingFragment StoreEntitySet="SalaryComponent">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Code" ColumnName="Code" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Period" ColumnName="Period" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SalaryDefaultValue">
       <EntityTypeMapping TypeName="Payroll.DataModel.SalaryDefaultValue">
         <MappingFragment StoreEntitySet="SalaryDefaultValue">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
           <ScalarProperty Name="SalaryComponentId" ColumnName="SalaryComponentId" />
           <ScalarProperty Name="Value" ColumnName="Value" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SellingDetail">
       <EntityTypeMapping TypeName="Payroll.DataModel.SellingDetail">
         <MappingFragment StoreEntitySet="SellingDetail">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="SellingHeaderId" ColumnName="SellingHeaderId" />
           <ScalarProperty Name="ItemId" ColumnName="ItemId" />
@@ -178,22 +174,66 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SellingHeader">
       <EntityTypeMapping TypeName="Payroll.DataModel.SellingHeader">
         <MappingFragment StoreEntitySet="SellingHeader">
-          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Reference" ColumnName="Reference" />
           <ScalarProperty Name="DateOfSelling" ColumnName="DateOfSelling" />
           <ScalarProperty Name="SellingTotal" ColumnName="SellingTotal" />
           <ScalarProperty Name="Payment" ColumnName="Payment" />
           <ScalarProperty Name="IsActivated" ColumnName="IsActivated" />
+          <ScalarProperty Name="CreateBy" ColumnName="CreateBy" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Payroll.DataModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccessControl">
+      <EntityTypeMapping TypeName="Payroll.DataModel.AccessControl">
+        <MappingFragment StoreEntitySet="AccessControl">
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Menu" ColumnName="Menu" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrPosition">
+      <EntityTypeMapping TypeName="Payroll.DataModel.TrPosition">
+        <MappingFragment StoreEntitySet="TrPosition">
+          <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+          <ScalarProperty Name="AccessControlId" ColumnName="AccessControlId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrUserAccess">
+      <EntityTypeMapping TypeName="Payroll.DataModel.TrUserAccess">
+        <MappingFragment StoreEntitySet="TrUserAccess">
+          <ScalarProperty Name="Right" ColumnName="Right" />
+          <ScalarProperty Name="AccessControlId" ColumnName="AccessControlId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

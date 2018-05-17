@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Payroll1.API
 {
@@ -9,6 +10,8 @@ namespace Payroll1.API
     {
         public static void Register(HttpConfiguration config)
         {
+            // New code
+            config.EnableCors();
             // Web API configuration and services
 
             // Web API routes
@@ -19,6 +22,9 @@ namespace Payroll1.API
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            // New code
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
         }
     }
 }

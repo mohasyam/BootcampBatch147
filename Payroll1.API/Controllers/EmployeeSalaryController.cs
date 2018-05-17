@@ -41,5 +41,6 @@ namespace Payroll1.API.Controllers
         {
             return EmployeeSalaryRepo.Delete(id);
         }
+
     }
 }

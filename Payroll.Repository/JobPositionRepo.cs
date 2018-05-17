@@ -38,17 +38,50 @@ namespace Payroll.Repository
             using (var db = new PayrollContext())
             {
                 result = (from d in db.JobPosition
+                          join dep in db.Department on
+                          d.DepartmentID equals dep.Id
+                          join div in db.Division on
+                          dep.DivisionId equals div.Id
                           where d.Id == id
                           select new JobPositionViewModel
                           {
                               Id = d.Id,
                               Code = d.Code,
                               DepartmentID = d.DepartmentID,
+                              DepartmentCode = dep.Code,
+                              DepartmentName = dep.Description,
+                              DivisionId = div.Id,
+                              DivisionCode = div.Code,
+                              DivisionName = div.Description,
                               Description = d.Description,
                               IsActivated = d.IsActivated
                           }
                           ).FirstOrDefault();
 
+            }
+            return result;
+        }
+
+        public static List<JobPositionViewModel> GetDepId(int depId)
+        {
+            List<JobPositionViewModel> result = new List<JobPositionViewModel>();
+            using (var db = new PayrollContext())
+            {
+                result = (from dep in db.Department
+                          join jp in db.JobPosition on
+                          dep.Id equals jp.DepartmentID
+                          where dep.Id == depId
+                          select new JobPositionViewModel
+                          {
+                              Id = jp.Id,
+                              Code = jp.Code,
+                              Description = jp.Description,
+                              DepartmentID = dep.Id,
+                              DepartmentCode = dep.Code,
+                              DepartmentName = dep.Description,
+                              IsActivated = jp.IsActivated
+                          }
+                          ).ToList();
             }
             return result;
         }

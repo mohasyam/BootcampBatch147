@@ -1,17 +1,26 @@
-﻿@{
+﻿@using Payroll.MVC.Security;
+@using Payroll.Repository;
+@{
     ViewBag.Title = "Division";
 }
 
 <div class="box">
-    <div class="box-header">
-        <div class="row">
-            <div class="col-md-6">
-                <button type="button" id="btn-Create" class="btn btn-lg btn-danger">
-                    Create New
-                </button>
+    @{
+        var level = AccountRepo.GetAccessRight(SessionPersister.Username, "Division");
+        if (level.AccessLevel == "W")
+        {
+            <div class="box-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="button" id="btn-Create" class="btn btn-lg btn-danger">
+                            Create New
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        }
+    }
+
     <div class="box-body">
         <div class="row">
             <div class="col-lg-12" id="table-list">
@@ -20,6 +29,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 
 <div class="modal fade" tabindex="-1" role="dialog" id="modal-Form">
@@ -51,6 +63,9 @@
                 type: 'get',
                 success: function (result) {
                     $("#table-list").html(result);
+                },
+                error: function (err) {
+                    alert(err);
                 }
             })
         }

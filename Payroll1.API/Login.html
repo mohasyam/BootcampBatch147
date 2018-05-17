@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="Content/bootstrap.css" />
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-title">
+            <h3>Login here</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <label class="col-lg-1">Username</label>
+                <div class="col-lg-11">
+                    <input type="text" id="username" />
+                </div>
+            </div>
+            <div class="row">
+                <label class="col-lg-1">Password</label>
+                <div class="col-lg-11">
+                    <input type="text" id="password" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1">
+                    <button type="button" class="btn btn-success">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
+<script src="Scripts/jquery-1.10.2.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $(".btn").click(function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                $.ajax({
+                    type: 'get',
+                    url: 'api/employees/login',
+                    data : {username:username, password:password },
+                    success: function (data) {
+                        alert("yayaya");
+                    }
+                })
+            })
+        })
+</script>

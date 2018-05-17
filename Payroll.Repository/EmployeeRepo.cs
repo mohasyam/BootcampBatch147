@@ -16,15 +16,15 @@ namespace Payroll.Repository
             using (var db = new PayrollContext())
             {
                 result = (from d in db.Employee
-                          join div in db.JobPosition on
-                          d.JobPositionId equals div.Id
+                          join jp in db.JobPosition on
+                          d.JobPositionId equals jp.Id
                           select new EmployeeViewModel
                           {
                               Id = d.Id,
                               BadgeId = d.BadgeId,
                               JobPositionId = d.JobPositionId,
-                              JobCode = div.Code,
-                              JobName = div.Description,
+                              JobCode = jp.Code,
+                              JobName = jp.Description,
                               FirstName = d.FirstName,
                               MiddleName = d.MiddleName,
                               LastName = d.LastName,
@@ -46,15 +46,26 @@ namespace Payroll.Repository
             using (var db = new PayrollContext())
             {
                 result = (from d in db.Employee
-                          join div in db.JobPosition on
-                          d.JobPositionId equals div.Id
+                          join jp in db.JobPosition on
+                          d.JobPositionId equals jp.Id
+                          join dep in db.Department on
+                          jp.DepartmentID equals dep.Id
+                          join div in db.Division on
+                          dep.DivisionId equals div.Id
                           where d.Id == id
                           select new EmployeeViewModel
                           {
                               Id = d.Id,
                               BadgeId = d.BadgeId,
                               JobPositionId = d.JobPositionId,
-                              JobName = div.Description,
+                              JobName = jp.Description,
+                              JobCode = jp.Code,
+                              DivisionId = div.Id,
+                              DivisionCode = div.Code,
+                              DivisionName = div.Description,
+                              DepartmentId = dep.Id,
+                              DepartmentCode = dep.Code,
+                              DepartmentName = dep.Description,
                               FirstName = d.FirstName,
                               MiddleName = d.MiddleName,
                               LastName = d.LastName,
@@ -102,6 +113,7 @@ namespace Payroll.Repository
             }
             return result;
         }
+
 
         public static List<EmployeeViewModel> GetBySearching(string search)
         {

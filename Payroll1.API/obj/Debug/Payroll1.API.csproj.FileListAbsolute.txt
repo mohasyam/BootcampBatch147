@@ -54,3 +54,6 @@ C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\bin\En
 C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\obj\Debug\Payroll1.API.csprojResolveAssemblyReference.cache
 C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\bin\EntityFramework.SqlServer.dll
 C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\bin\EntityFramework.SqlServer.xml
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\bin\System.Web.Cors.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\bin\System.Web.Http.Cors.dll
+C:\Users\Asyam\Documents\Visual Studio 2015\Projects\Payroll\Payroll1.API\bin\System.Web.Http.Cors.xml
